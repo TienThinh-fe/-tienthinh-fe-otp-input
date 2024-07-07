@@ -1,0 +1,32 @@
+.otp-container .otp-input {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Specific class application */
+.otp-input::-webkit-outer-spin-button,
+.otp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otp-input {
+  -moz-appearance: textfield;
+}
