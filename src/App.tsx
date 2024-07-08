@@ -1,7 +1,12 @@
-import { OTPInput } from "./components";
+import { OTPInput } from './components';
 
 function App() {
-  return <OTPInput />;
+  return (
+    <div>
+      123456
+      <OTPInput />
+    </div>
+  );
 }
 
 export default App;

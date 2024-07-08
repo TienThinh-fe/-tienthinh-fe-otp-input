@@ -1,6 +1,6 @@
-import React from 'react';
-
 import './styles.css';
+
+import React from 'react';
 
 export const OTPInput = () => {
   const inputRefs = React.useRef<(HTMLInputElement | null)[]>([]);
@@ -32,6 +32,23 @@ export const OTPInput = () => {
     event.currentTarget.value = value;
   };
 
+  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
+    const pastedValue = event.clipboardData.getData('text/plain');
+    const length = pastedValue.length;
+
+    if (!pastedValue || length < 1) {
+      return;
+    }
+
+    inputRefs.current.forEach((input, index) => {
+      if (index < length && input) {
+        input!.value = pastedValue[index];
+        input.focus();
+        setInputFocusedIndex(index);
+      }
+    });
+  };
+
   return (
     <div className="otp-container">
       {Array.from({ length: 6 }).map((_, index) => {
@@ -48,6 +65,7 @@ export const OTPInput = () => {
               inputRefs.current[index] = el;
             }}
             onChange={handleChange}
+            onPaste={handlePaste}
             onInput={handleInput}
           />
         );
